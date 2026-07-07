@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме — Ткаченко Алёна Андреевна</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f6fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 40px 20px;
+            color: #1e293b;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            padding: 48px 48px 40px;
+            transition: all 0.2s;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 16px; }
+            .resume { padding: 24px 20px; border-radius: 20px; }
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 28px;
+            margin-bottom: 28px;
+        }
+
+        .name-title h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+
+        .name-title .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 40px;
+            margin-top: 6px;
+        }
+
+        .contact {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .contact a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .contact .muted {
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .meta-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 28px;
+            background: #f8fafc;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-bottom: 28px;
+            font-size: 15px;
+        }
+
+        .meta-grid span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-grid .label {
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .meta-grid .value {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .section-title .line {
+            flex: 1;
+            height: 2px;
+            background: #e9edf2;
+        }
+
+        /* ===== JOB ===== */
+        .job {
+            margin-bottom: 24px;
+        }
+
+        .job-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .job-company {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        .job-period {
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+        .job-desc {
+            margin-top: 8px;
+            padding-left: 4px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+
+        .job-desc ul {
+            list-style: none;
+            padding: 0;
+            margin: 6px 0 0 0;
+        }
+
+        .job-desc li {
+            padding: 3px 0 3px 20px;
+            position: relative;
+        }
+
+        .job-desc li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        .job-desc .highlight {
+            background: #f1f5f9;
+            padding: 8px 14px;
+            border-radius: 12px;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #0f172a;
+            display: inline-block;
+        }
+
+        .inline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+            margin-top: 6px;
+        }
+
+        .inline-tags span {
+            background: #f1f5f9;
+            font-size: 13px;
+            padding: 2px 12px;
+            border-radius: 30px;
+            color: #1e293b;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 4px 16px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-name {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .edu-detail {
+            font-size: 14px;
+            color: #334155;
+        }
+
+        .edu-year {
+            font-weight: 500;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .course-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 4px 16px;
+            font-size: 14px;
+            padding: 3px 0;
+            border-bottom: 1px dashed #eef2f6;
+        }
+
+        .course-item:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+
+        .skills-grid .skill {
+            background: #eef2ff;
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 16px;
+            border-radius: 40px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #0f172a;
+            margin-right: 4px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #fafcff;
+            padding: 16px 20px;
+            border-radius: 16px;
+            border: 1px solid #eef2f6;
+        }
+
+        .about-text strong {
+            color: #0f172a;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 24px;
+            margin-top: 8px;
+            font-size: 14.5px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            padding: 3px 0 3px 20px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        @media (max-width: 480px) {
+            .service-list { grid-template-columns: 1fr; }
+            .header { flex-direction: column; align-items: stretch; }
+            .contact { text-align: left; align-items: flex-start; }
+            .meta-grid { flex-direction: column; gap: 6px; }
+            .job-header { flex-direction: column; align-items: flex-start; }
+            .job-period { white-space: normal; }
+        }
+
+        .footer-note {
+            margin-top: 28px;
+            border-top: 2px solid #eef2f6;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #94a3b8;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer-note a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="name-title">
+                <h1>Ткаченко Алёна Андреевна</h1>
+                <div class="badge">Менеджер маркетплейсов Wildberries</div>
+            </div>
+            <div class="contact">
+                <a href="tel:+79501813819">+7 (950) 181-38-19</a>
+                <a href="mailto:alenazavalennaya@gmail.com">alenazavalennaya@gmail.com</a>
+                <span class="muted">Калининград • Россия</span>
+                <span class="muted">Готова к удалённой работе и командировкам</span>
+            </div>
+        </div>
+
+        <!-- META -->
+        <div class="meta-grid">
+            <span><span class="label">Возраст:</span> <span class="value">33 года (3 мая 1993)</span></span>
+            <span><span class="label">Желаемая зарплата:</span> <span class="value">100 000 ₽ на руки</span></span>
+            <span><span class="label">Занятость:</span> <span class="value">полная / частичная / проектная</span></span>
+            <span><span class="label">Формат:</span> <span class="value">удалённо</span></span>
+            <span><span class="label">Опыт:</span> <span class="value">11 лет</span></span>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">
+                Опыт работы <span class="line"></span>
+            </div>
+
+            <!-- JOB 1 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Менеджер WB</span>
+                    <span class="job-company">WB / Ozon</span>
+                    <span class="job-period">Июнь 2023 — настоящее время (3 года)</span>
+                </div>
+                <div class="job-desc">
+                    <ul>
+                        <li>Регистрация и настройка личного кабинета.</li>
+                        <li>Анализ категории товара на основе конкурентов.</li>
+                        <li>Создание карточек товаров, инфографика, SEO-оптимизация (сбор семантического ядра).</li>
+                        <li>Расчёт ценообразования, участие в акциях, первоначальные затраты.</li>
+                        <li>Анализ карточек конкурентов, создание поставок.</li>
+                        <li>Настройка внутренней рекламы, ответы на отзывы и вопросы.</li>
+                        <li>Заполнение отчётности.</li>
+                    </ul>
+                    <div class="highlight">✅ Ответственность · многозадачность · готовность учиться новому</div>
+                </div>
+            </div>
+
+            <!-- JOB 2 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Специалист отдела технической поддержки</span>
+                    <span class="job-company">Ozon</span>
+                    <span class="job-period">Октябрь 2021 — Май 2023 (1 год 8 месяцев)</span>
+                </div>
+            </div>
+
+            <!-- JOB 3 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Менеджер по продажам</span>
+                    <span class="job-company">Мебельная компания</span>
+                    <span class="job-period">Июнь 2020 — Июнь 2021 (1 год 1 месяц)</span>
+                </div>
+                <div class="job-desc">
+                    Оформление заявок, работа с клиентами, консультации по выбору мебели.
+                </div>
+            </div>
+
+            <!-- JOB 4 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Специалист по государственным закупкам</span>
+                    <span class="job-company">ТОО "Актюбинское Упп Кос"</span>
+                    <span class="job-period">Июнь 2017 — Март 2020 (2 года 10 месяцев)</span>
+                </div>
+                <div class="job-desc">
+                    Участие в закупках на государственных и коммерческих порталах, подготовка документов, мониторинг конкурсов, проверка почты, оформление официальных писем.
+                </div>
+            </div>
+
+            <!-- JOB 5 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Специалист по государственным закупкам</span>
+                    <span class="job-company">ТОО АНСЗ</span>
+                    <span class="job-period">Январь 2016 — Июль 2018 (2 года 7 месяцев)</span>
+                </div>
+            </div>
+
+            <!-- JOB 6 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Секретарь-делопроизводитель</span>
+                    <span class="job-company">ТОО ОксиБилд</span>
+                    <span class="job-period">Январь 2015 — Январь 2016 (1 год 1 месяц)</span>
+                </div>
+                <div class="job-desc">
+                    Приём звонков, обработка информации.
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">
+                Образование <span class="line"></span>
+            </div>
+
+            <div class="edu-item">
+                <span class="edu-name">Ульяновский государственный университет</span>
+                <span class="edu-detail">Бизнес-аналитика (магистр бизнес-информатики)</span>
+                <span class="edu-year">2017</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-name">Оренбургский государственный университет</span>
+                <span class="edu-detail">Экономика и управление на предприятии (экономист-менеджер)</span>
+                <span class="edu-year">2015</span>
+            </div>
+
+            <div style="margin-top: 16px;">
+                <div style="font-weight:600; font-size:15px; color:#0f172a; margin-bottom:6px;">Повышение квалификации &amp; курсы</div>
+                <div class="course-item"><span>ИНФОПРОКАЧКА — инфографика для маркетплейсов</span> <span>2026</span></div>
+                <div class="course-item"><span>Эксперт по настройке контекстной рекламы Я.Директ</span> <span>2025</span></div>
+                <div class="course-item"><span>Курс «ПРОДВИЖЕНИЕ 8.0» — Менеджер Wildberries</span> <span>2023</span></div>
+                <div class="course-item"><span>Курс «Визажист Салонный мастер»</span> <span>2019</span></div>
+                <div class="course-item"><span>Городской художественный лицей (г. Актобе) — художественное оформление</span> <span>2009</span></div>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="section">
+            <div class="section-title">
+                Навыки <span class="line"></span>
+            </div>
+            <div class="skills-grid">
+                <span class="skill">Навыки переговоров</span>
+                <span class="skill">Навыки продаж</span>
+                <span class="skill">Работоспособность</span>
+                <span class="skill">Wildberries &amp; Ozon</span>
+                <span class="skill">Анализ товаров</span>
+                <span class="skill">Создание карточек</span>
+                <span class="skill">Штрихкоды / поставки</span>
+                <span class="skill">Аналитика ниш</span>
+                <span class="skill">Консультация</span>
+                <span class="skill">Ответственность</span>
+                <span class="skill">Деловое общение</span>
+                <span class="skill">Поиск клиентов</span>
+                <span class="skill">Большой объём информации</span>
+                <span class="skill">Поиск в интернет</span>
+                <span class="skill">Управленческие навыки</span>
+                <span class="skill">Коммуникабельность</span>
+            </div>
+            <div style="margin-top: 12px; font-size:14px; color:#334155;">
+                <span style="font-weight:600;">Языки:</span> Русский — родной
+            </div>
+            <div style="margin-top: 6px; font-size:14px; color:#334155;">
+                <span style="font-weight:600;">Водительские права:</span> категория B
+            </div>
+        </div>
+
+        <!-- ABOUT / SERVICES -->
+        <div class="section">
+            <div class="section-title">
+                Что я предлагаю для вашего бизнеса на WB <span class="line"></span>
+            </div>
+            <div class="about-text">
+                <ul class="service-list">
+                    <li>Зарегистрирую и настрою личный кабинет</li>
+                    <li>Проанализирую категорию и товар (включая конкурентов)</li>
+                    <li>Создам карточки, инфографику, SEO-оптимизацию (семантическое ядро)</li>
+                    <li>Рассчитаю ценообразование, затраты, акции</li>
+                    <li>Проанализирую карточки конкурентов</li>
+                    <li>Создам поставку</li>
+                    <li>Настрою внутреннюю рекламу</li>
+                    <li>Грамотно отвечу на отзывы и вопросы</li>
+                    <li>Настрою самовыкупы, рассчитаю затраты</li>
+                </ul>
+                <div style="margin-top: 12px; font-weight:500; color:#0f172a;">
+                    🌟 Всегда готова к новым знаниям, ответственна, честна, коммуникабельна.
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-note">
+            <span>Резюме обновлено 8 мая 2026</span>
+            <span>
+                <a href="mailto:alenazavalennaya@gmail.com">alenazavalennaya@gmail.com</a> 
+                · <a href="tel:+79501813819">+7 (950) 181-38-19</a>
+            </span>
+        </div>
+
+    </div>
+</body>
+</html>
